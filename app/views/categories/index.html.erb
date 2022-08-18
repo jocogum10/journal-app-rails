@@ -1,0 +1,27 @@
+<h1>Journal Categories</h1>
+<hr class="my-4">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Category</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.id %></td>
+                <td><%= category.category %></td>
+                <td><%= category.details %></td>
+                <td><%= button_to "Edit", edit_category_path(category.id), {method: :get, class: "btn btn-info"} %></td>
+                <td><%= button_to "Delete", delete_category_path(category.id), {method: :delete, class: "btn btn-danger"} %></td>
+                <td><%= button_to "Show", show_category_path(category.id), {method: :get, class: "btn btn-secondary"} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= button_to '+ New Category' , new_category_path, {method: :get, class: "btn btn-primary"} %>

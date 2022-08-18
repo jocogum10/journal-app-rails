@@ -1,0 +1,12 @@
+<h1>Journal Categories - Edit Entry</h1>
+<hr class="my-4">
+<%= form_with scope: :category ,url: update_category_path, method: :patch, local: true do |f| %>
+    
+    <%= f.label 'Category Title' %><br>
+    <%= f.text_field :category %><br>
+
+    <%= f.label 'Category Details' %><br>
+    <%= f.text_area :details %><br>
+
+    <%= f.submit "Edit Category" %>
+<% end %>

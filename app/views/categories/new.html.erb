@@ -1,0 +1,29 @@
+<h1>Journal Categories - Create New</h1>
+<hr class="my-4">
+<%= form_with scope: :category, url: create_category_path, local: true do |f| %>
+    
+    <p>
+        <% if @category.errors.any?  %>
+            <ul>
+                <% @category.errors.full_messages.each do |message| %>
+                    <li>
+                        <%= message %>
+                    </li>
+                <% end %>
+            </ul>
+        <% end %>
+    </p>
+    
+    <p>
+    <%= f.label 'Category Title' %>
+    <%= f.text_field :category %>
+    </p>
+    
+    <p>
+    <%= f.label 'Category Details' %>
+    <%= f.text_area :details %>
+    </p>
+    
+
+    <%= f.submit "Create" %>
+<% end %>
